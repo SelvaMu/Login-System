@@ -1,0 +1,45 @@
+{% include 'nav.html' %}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{%static '/media/login.ico'%}" type="image/ico" sizes="16x16">
+    <title>Login</title>
+</head>
+<body>
+    <h1 class="m-xxl-5 text-xl-center text-uppercase">Login Page</h1>
+    <div class=".p">
+        <form action="/login" method="POST">
+            {%csrf_token%}
+            <div class="container mt-xxl-5">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="User Name">
+                    <label for="name">User Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="pass" name="pass" placeholder="Password">
+                    <label for="pass">Password</label>
+                  </div>
+                
+                <div class="container">
+                    <input type="submit" value="Login" class="btn btn-outline-success">
+                    <a href="/regis" class="btn btn-outline-danger">Signup Here..!</a>
+                </div>
+            </div>
+            <div>
+                <div>
+                    {%for message in messages%}
+                    <p>{{message}</p>
+                    {%endfor%}
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    
+    
+</body>
+</html>

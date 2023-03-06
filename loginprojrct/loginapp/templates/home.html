@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    {% include 'head.html'%}
+    {% include 'nav.html'%}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{%static '/media/hom.ico'%}" type="image/ico" sizes="16x16">
+    <title>Home</title>
+</head>
+<body>
+    <h1 class="m-xxl-5 text-xl-center text-uppercase">Welcome</h1>
+<div class="container">
+    {%if request.user.is_authenticated%}
+    <p class="text-xl-center">You are Logged In</p>
+    <p>UserName : {{request.user.username}}</p>
+    <p>Email : {{request.user.email}}</p>
+    <a href="/logout" type="button" class="btn btn-outline-danger">Log Out</a>
+    {%else%}
+    <p class="text-xl-center fs-3">Not Login</p>
+    {%endif%}
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+{% include 'nav.html' %}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{%static '/media/re.ico'%}" type="image/ico" sizes="16x16">
+    <title>Register</title>
+</head>
+<body>
+    <h1 class="m-xxl-5 text-xl-center text-uppercase">Register Page</h1>
+    <div>
+        <form action="/regis" method="POST" class="">
+            {%csrf_token%}
+            <div class="container mt-xxl-5">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="name@example.com">
+                    <label for="name">User Name</label>
+                </div>
+                
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+                    <label for="email">Email address</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="pass" name="pass" placeholder="name@example.com">
+                    <label for="pass">Password</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="repass" name="repass" placeholder="name@example.com">
+                    <label for="repass">Confirm Password</label>
+                  </div>
+                <div class="container">
+                    <input type="submit" value="Submit" class="btn btn-success">
+                    <a href="/login" class="btn btn-danger">Login</a>
+                </div>
+                
+            </div>
+
+            <div>
+                {%for message in messages%}
+                <p>{{message}}</p>
+                {%endfor%}
+            </div>
+        </form>
+    </div>
+</body>
+</html>
